@@ -10,7 +10,6 @@ from bird import Bird
 from pipes import Pipes
 from base import Base
 
-
 # Constants
 ROOT_DIR = os.path.dirname(__file__)
 START_TIME = time()
@@ -28,12 +27,6 @@ pg.init()
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption('Flappy Bird')
 clock = pg.time.Clock()
-
-
-def _quit_program():
-    print("--- %s seconds ---" % round(time() - START_TIME, 2))
-    pg.quit()
-    sys.exit()
 
 
 def get_center(img_dims, offset=(WIDTH / 2, HEIGHT / 2)):
@@ -110,7 +103,13 @@ class FlappyBird(object):
         self.base.draw(surface)
 
 
-def _intro(player, base):
+def quit_program():
+    print("--- %s seconds ---" % round(time() - START_TIME, 2))
+    pg.quit()
+    sys.exit()
+
+
+def intro(player, base):
     """
     Introduction is the first scene of the game, also known as the starting screen.
 
@@ -137,7 +136,7 @@ def _intro(player, base):
         clock.tick(30)
 
 
-def _game_over(player):
+def game_over(player):
     """
     The Game Over scene usually commences once the player bird dies and
     displays the score.
@@ -170,12 +169,12 @@ def _game_over(player):
         clock.tick(30)
 
 
-def _main():
+def main():
     flappy_bird = FlappyBird()
     run = True
     while run:
         flappy_bird.reset()
-        run = _intro(flappy_bird.birds[0], flappy_bird.base)
+        run = intro(flappy_bird.birds[0], flappy_bird.base)
 
         while run and flappy_bird.is_alive():
             for event in pg.event.get():
@@ -191,9 +190,9 @@ def _main():
             clock.tick(FPS)
 
         if run:
-            run = _game_over(flappy_bird.birds[0])
-    _quit_program()
+            run = game_over(flappy_bird.birds[0])
+    quit_program()
 
 
 if __name__ == '__main__':
-    _main()
+    main()
