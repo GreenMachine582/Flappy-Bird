@@ -7,9 +7,9 @@ flappy_bird_version = (
     .stdout.decode("utf-8")
     .strip()
 )
-
-if flappy_bird_version[0] == 'v':
-    flappy_bird_version = flappy_bird_version[1:-1]
+# print(flappy_bird_version)
+# if flappy_bird_version[0] == 'v':
+#     flappy_bird_version = flappy_bird_version[1:-1]
 if "-" in flappy_bird_version:
     x = flappy_bird_version.split("-")
     v, i, s = x[0], x[1], x[-1]
