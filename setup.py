@@ -9,7 +9,8 @@ flappy_bird_version = (
 )
 
 if "-" in flappy_bird_version:
-    v, i, s = flappy_bird_version.split("-")
+    x = flappy_bird_version.split("-")
+    v, i, s = x[0], x[1], x[-1]
     flappy_bird_version = v + "+" + i + ".git." + s
 
 assert "-" not in flappy_bird_version
