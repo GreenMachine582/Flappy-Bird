@@ -32,6 +32,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/GreenMachine582/Flappy-Bird',
+    package_dir={'':'flappy_bird'},
     packages=find_packages(),
     package_data={'flappy_bird': ['VERSION']},
     include_package_data=True,
