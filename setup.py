@@ -15,7 +15,7 @@ if "-" in flappy_bird_version:
     v, i, s = x[0], x[1], x[-1]
     flappy_bird_version = v + "+" + i + ".git." + s
 
-# assert "-" not in flappy_bird_version
+assert "-" not in flappy_bird_version
 # assert "." in flappy_bird_version
 
 assert os.path.isfile("src/version.py")
