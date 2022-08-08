@@ -2,8 +2,8 @@
 .idea
 venv
 /venv
-/flappy_bird/VERSION
-/flappy_bird/__pycache__/
+/src/VERSION
+/src/__pycache__/
 /flappy_bird.egg-info/
 
 # Byte-compiled / optimized / DLL files

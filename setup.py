@@ -16,8 +16,8 @@ if "-" in flappy_bird_version:
 assert "-" not in flappy_bird_version
 assert "." in flappy_bird_version
 
-assert os.path.isfile("flappy_bird/version.py")
-with open("flappy_bird/VERSION", "w", encoding="utf-8") as fh:
+assert os.path.isfile("src/version.py")
+with open("src/VERSION", "w", encoding="utf-8") as fh:
     fh.write("%s\n" % flappy_bird_version)
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -32,9 +32,9 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/GreenMachine582/Flappy-Bird',
-    package_dir={'':'flappy_bird'},
+    package_dir={'': 'src'},
     packages=find_packages(),
-    package_data={'flappy_bird': ['VERSION']},
+    package_data={'src': ['VERSION']},
     include_package_data=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -48,6 +48,6 @@ setup(
     ],
     keywords='flappy-bird-game, environment',
     python_requires='>=3.10, <4',
-    entry_points={"gui_scripts": ["flappy-bird = flappy_bird.flappy_bird:main"]},
+    entry_points={"gui_scripts": ["flappy-bird = src.flappy_bird:main"]},
     install_requires=['pygame >= 2.1.2, <3'],
 )
