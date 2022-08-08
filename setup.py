@@ -7,7 +7,7 @@ flappy_bird_version = (
     .stdout.decode("utf-8")
     .strip()
 )
-# print(flappy_bird_version)
+print(flappy_bird_version)
 # if flappy_bird_version[0] == 'v':
 #     flappy_bird_version = flappy_bird_version[1:-1]
 if "-" in flappy_bird_version:
@@ -15,8 +15,8 @@ if "-" in flappy_bird_version:
     v, i, s = x[0], x[1], x[-1]
     flappy_bird_version = v + "+" + i + ".git." + s
 
-assert "-" not in flappy_bird_version
-assert "." in flappy_bird_version
+# assert "-" not in flappy_bird_version
+# assert "." in flappy_bird_version
 
 assert os.path.isfile("src/version.py")
 with open("src/VERSION", "w", encoding="utf-8") as fh:
