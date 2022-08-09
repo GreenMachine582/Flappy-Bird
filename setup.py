@@ -19,7 +19,7 @@ def get_version():
 
     print(version)
 
-    assert "-" not in cfbs_version
+    assert "-" not in version
     assert "." in version
     return version
 
