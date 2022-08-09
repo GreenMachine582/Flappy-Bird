@@ -4,20 +4,20 @@ import os
 
 
 def get_version():
-    version = (
+    latest_version = (
         subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
         .stdout.decode("utf-8")
         .strip()
     )
 
-    if "-" in version:
-        x = version.split("-")
+    if "-" in latest_version:
+        x = latest_version.split("-")
         v, i, s = x[0], x[1], x[-1]
-        version = v + "+" + i + ".git." + s
+        latest_version = v + "+" + i + ".git." + s
 
-    assert "-" not in version
-    assert "." in version
-    return version
+    assert "-" not in latest_version
+    assert "." in latest_version
+    return latest_version
 
 
 version = get_version()
