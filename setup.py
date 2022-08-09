@@ -10,8 +10,6 @@ def get_version():
         .strip()
     )
 
-    if len(latest_version) > 0 and latest_version[0] == 'v':
-        latest_version = latest_version[1:]
     if "-" in latest_version:
         x = latest_version.split("-")
         v, i, s = x[0], x[-2], x[-1]
