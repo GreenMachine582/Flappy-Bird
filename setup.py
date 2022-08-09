@@ -10,8 +10,8 @@ def get_version():
         .strip()
     )
 
-    if len(version) > 0 and version[0] == 'v':
-        version = version[1:]
+    # if len(version) > 0 and version[0] == 'v':
+    #     version = version[1:]
     if "-" in version:
         x = version.split("-")
         v, i, s = x[0], x[1], x[-1]
@@ -55,6 +55,6 @@ setup(
     ],
     keywords='flappy-bird-game, environment',
     python_requires='>=3.10, <4',
-    entry_points={"gui_scripts": ["flappy-bird = src.flappy_bird:main"]},
+    entry_points={"gui_scripts": ["flappy_bird = src.flappy_bird:main"]},
     install_requires=['pygame >= 2.1.2, <3'],
 )
