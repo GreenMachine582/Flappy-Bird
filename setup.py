@@ -9,13 +9,15 @@ def get_version():
         .stdout.decode("utf-8")
         .strip()
     )
-    print(latest_version)
+
     if "-" in latest_version:
         x = latest_version.split("-")
-        print(x)
-        v, i, s = x[0], x[-2], x[-1]
+        v, i, s = x[0], x[1], x[-1]
+        if len(x) == 2:
+            i = 0
+        elif len(x) == 4:
+            i = x[2]
         latest_version = f"{v}+{i}.git.{s}"
-    print(latest_version)
 
     assert "-" not in latest_version
     assert "." in latest_version
