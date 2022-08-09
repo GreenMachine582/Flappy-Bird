@@ -9,15 +9,14 @@ def get_version():
         .stdout.decode("utf-8")
         .strip()
     )
+    # print()
+    # if version[0] == 'v':
+    #     version = version[1:]
+    # if "-" in version:
+    #     x = version.split("-")
+    #     v, i, s = x[0], x[1], x[-1]
+    #     version = v + "+" + i + ".git." + s
 
-    if version[0] == 'v':
-        version = version[1:]
-    if "-" in version:
-        x = version.split("-")
-        v, i, s = x[0], x[1], x[-1]
-        version = v + "+" + i + ".git." + s
-
-    assert "-" not in version
     assert "." in version
     return version
 
