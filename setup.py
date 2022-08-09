@@ -2,21 +2,27 @@ from setuptools import setup, find_packages
 import subprocess
 import os
 
-flappy_bird_version = (
-    subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
-    .stdout.decode("utf-8")
-    .strip()
-)
-print(flappy_bird_version)
-# if flappy_bird_version[0] == 'v':
-#     flappy_bird_version = flappy_bird_version[1:-1]
-if "-" in flappy_bird_version:
-    x = flappy_bird_version.split("-")
-    v, i, s = x[0], x[1], x[-1]
-    flappy_bird_version = v + "+" + i + ".git." + s
 
-assert "-" not in flappy_bird_version
-# assert "." in flappy_bird_version
+def get_version():
+    version = (
+        subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
+        .stdout.decode("utf-8")
+        .strip()
+    )
+
+    if version[0] == 'v':
+        version = version[1:]
+    if "-" in version:
+        x = version.split("-")
+        v, i, s = x[0], x[1], x[-1]
+        version = v + "+" + i + ".git." + s
+
+    assert "-" not in version
+    assert "." in version
+    return version
+
+
+flappy_bird_version = get_version()
 
 assert os.path.isfile("src/version.py")
 with open("src/VERSION", "w", encoding="utf-8") as fh:
