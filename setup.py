@@ -10,8 +10,6 @@ def get_version():
         .strip()
     )
 
-    # if len(version) > 0 and version[0] == 'v':
-    #     version = version[1:]
     if "-" in version:
         x = version.split("-")
         v, i, s = x[0], x[1], x[-1]
@@ -22,18 +20,18 @@ def get_version():
     return version
 
 
-flappy_bird_version = get_version()
+version = get_version()
 
 assert os.path.isfile("src/version.py")
 with open("src/VERSION", "w", encoding="utf-8") as fh:
-    fh.write("%s\n" % flappy_bird_version)
+    fh.write("%s\n" % version)
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name='Flappy-Bird',
-    version=flappy_bird_version,
+    name='flappy-bird',
+    version=version,
     author='Matthew Johnson',
     author_email='greenchicken1902@gmail.com',
     description='Flappy Bird Environment',
