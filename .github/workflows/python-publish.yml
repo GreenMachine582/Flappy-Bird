@@ -22,6 +22,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Reference
+      run: |
+        echo Output Run ID ${{ github.run_id }}
+        echo Output Run Number ${{ github.run_number }}
+        echo Output Run Attempt ${{ github.run_attempt }}
+
     - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
