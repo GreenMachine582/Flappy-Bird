@@ -15,14 +15,14 @@ def get_version():
         v, i, s = x[0], x[-2], x[-1]
         if len(x) == 2:
             i = 0
-        latest_version = f"{v}+{i}.git.{s}"
-
-    assert "-" not in latest_version
-    assert "." in latest_version
+        return f"{v}+{i}.git.{s}"
     return latest_version
 
 
 version = get_version()
+
+assert "-" not in version
+assert "." in version
 
 assert os.path.isfile("src/version.py")
 with open("src/VERSION", "w", encoding="utf-8") as fh:
